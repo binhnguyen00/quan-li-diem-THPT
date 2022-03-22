@@ -47,39 +47,33 @@
             <div class="card-body">
               <form action="#" method="POST">
                 <?php if (isset($thatbai)) {
-                  echo "<span style='color:red'>".($thatbai)."</span>";
+                  echo "<span style='color:red'>" . ($thatbai) . "</span>";
                 }
                 ?>
-                <?php 
+                <?php
                 // echo "<pre>";
                 // print_r($list_id_hocphan);
                 foreach ($list_id_hocphan as $value) {
                 ?>
-                <div class="form-group">
-                  <div class="form-label-group">
-                    <input type="text" name="txt_maHocphan" id="inputmaHocphan" class="form-control" placeholder="Mã học phần" value="<?php echo $value['ma_mon']; ?>" required="required">
-                    <label for="inputmaHocphan">Mã học phần</label>
+                  <div class="form-group">
+                    <div class="form-label-group">
+                      <input type="text" name="txt_maHocphan" id="inputmaHocphan" class="form-control" placeholder="Mã môn học" value="<?php echo $value['ma_mon']; ?>" required="required">
+                      <label for="inputmaHocphan">Mã môn học</label>
+                    </div>
                   </div>
-                </div>
-                <div class="form-group">
-                  <div class="form-label-group">
-                    <input type="text" name="txt_tenHocphan" id="inputtenHocphan" class="form-control" placeholder="Tên học phần" value="<?php echo $value['ten_mon']; ?>" required="required">
-                    <label for="inputtenHocphan">Tên học phần</label>
+                  <div class="form-group">
+                    <div class="form-label-group">
+                      <input type="text" name="txt_tenHocphan" id="inputtenHocphan" class="form-control" placeholder="Tên môn học" value="<?php echo $value['ten_mon']; ?>" required="required">
+                      <label for="inputtenHocphan">Tên môn học</label>
+                    </div>
                   </div>
-                </div>
-                <div class="form-group">
-                  <div class="form-label-group">
-                    <input type="number" name="txt_stc" id="inputSotinchi" class="form-control" placeholder="Số tín chỉ" value="<?php echo $value['sotinchi']; ?>" min="1" max="5" required="required">
-                    <label for="inputSotinchi">Số tín chỉ</label>
-                  </div>
-                </div>
                 <?php } ?>
                 <div class="form-group">
                   <label for="sel1">Mã học kỳ</label>
                   <select class="form-control" id="sel1" name="sellist1" size="3">
                     <?php foreach ($listhocky as $value) {
-                     ?>
-                    <option value="<?php echo $value['ma_hk']; ?>"><?php echo $value['ten_hk']; ?></option>
+                    ?>
+                      <option value="<?php echo $value['ma_hk']; ?>"><?php echo $value['ten_hk']; ?></option>
                     <?php } ?>
                   </select>
                 </div>
@@ -91,34 +85,34 @@
         <!-- /.container-fluid -->
 
       </div>
-    <!-- /.content-wrapper -->
+      <!-- /.content-wrapper -->
 
-  </div>
-  <!-- /#wrapper -->
+    </div>
+    <!-- /#wrapper -->
 
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
 
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Sẵn sàng đang xuất?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Bạn có chắc chắn muốn đăng xuất tài khoản không?</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy</button>
-          <a class="btn btn-primary" href="index.php">Đăng xuất</a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Sẵn sàng đang xuất?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Bạn có chắc chắn muốn đăng xuất tài khoản không?</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy</button>
+            <a class="btn btn-primary" href="index.php">Đăng xuất</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
 </body>
 <!-- Bootstrap core JavaScript-->
@@ -135,4 +129,5 @@
 <!-- Demo scripts for this page-->
 <script src="bootstraps/js/demo/datatables-demo.js"></script>
 <script src="bootstraps/js/demo/chart-area-demo.js"></script>
+
 </html>

@@ -14,7 +14,7 @@
     <div class="card mb-3">
       <div class="card-header">
         <i class="fas fa-table"></i>
-        Bảng điểm học phần sinh viên
+        Bảng điểm lớp
       </div>
       <div class="card-body">
         <div class="table-responsive">
@@ -24,7 +24,6 @@
                 <th>STT</th>
                 <th>Mã môn</th>
                 <th>Tên môn</th>
-                <th>Số tín chỉ</th>
                 <th>Điểm Giữa kỳ</th>
                 <th>Diểm thi học kỳ</th>
                 <th>Điểm học phần</th>

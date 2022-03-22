@@ -7,14 +7,14 @@
       <li class="breadcrumb-item">
         <a href="#">Bảng điểu kiểm</a>
       </li>
-      <li class="breadcrumb-item active">Danh sách sinh viên</li>
+      <li class="breadcrumb-item active">Danh sách học sinh</li>
     </ol>
 
     <!-- DataTables Example -->
     <div class="card mb-3">
       <div class="card-header">
         <i class="fas fa-table"></i>
-        Tất cả sinh viên
+        Tất cả học sinh
       </div>
       <div class="card-body">
         <div class="table-responsive">
@@ -22,7 +22,7 @@
             <thead>
               <tr>
                 <th>STT</th>
-                <th>Mã sinh viên</th>
+                <th>Mã học sinh</th>
                 <th>Họ và tên</th>
                 <th>Ngày sinh</th>
                 <th>Giới tính</th>

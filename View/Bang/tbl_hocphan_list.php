@@ -75,7 +75,6 @@
                         <td><?php echo $STT; ?></td>
                         <td><?php echo $value['ma_mon']; ?></td>
                         <td><?php echo $value['ten_mon']; ?></td>
-                        <td><?php echo $value['sotinchi']; ?></td>
                         <td><?php echo $value['ma_hk']; ?></td>
                         <td>
                           <a href="index.php?controllers=quanly&action=Edit_hocphan&maMon=<?php echo $value['ma_mon']; ?>" title="Sửa"><i class="fas fa-edit"></i> </a>
