@@ -11,15 +11,16 @@ switch ($action) {
 		if (isset($_POST['Dangky'])) {
 			$txtfirstName = $_POST['txtfirstName'];
 			$txtlastName = $_POST['txtlastName'];
-			$txtUsername = $_POST['txtUsername'];
+			$txtTen_tk = $_POST['txtTen_tk'];
 			$txtEmail = $_POST['txtEmail'];
-			$txtPassword = md5($_POST['txtPassword']);
-			$txtCfPassword = md5($_POST['txtCfPassword']);
+			$txtMatkhau = md5($_POST['txtMatkhau']);
+			$txtCfMatkhau = md5($_POST['txtCfMatkhau']);
+			$Ma_ltk = 'B01'; 
 
-			$txtHoten = $txtfirstName . " " . $txtlastName;
+			$txtHovaten = $txtfirstName . " " . $txtlastName;
 
-			if ($txtPassword == $txtCfPassword) {
-				if (Dangnhap::ADD($txtHoten, $txtUsername, $txtPassword, $txtEmail)) {
+			if ($txtMatkhau == $txtCfMatkhau) {
+				if (Dangnhap::ADD($txtHovaten, $txtTen_tk, $txtMatkhau, $txtEmail, $Ma_ltk)) {
 					header('location:index.php?controllers=login');
 				}
 			} else {
