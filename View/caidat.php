@@ -28,46 +28,46 @@
     <?php require_once 'masster/footer.php'; ?>
 
     <div class="container">
-    	<div class="card card-register mx-auto mt-5">
-    		<div class="card-header">Cài Đặt</div>
-    		<?php if (isset($thatbai)) {
-    			echo "<span style='color:red;'>".$thatbai."</span>";
-    		} ?>
-    		<div class="card-body">
-    			<form action="#" method="POST">
+      <div class="card card-register mx-auto mt-5">
+        <div class="card-header">Cài Đặt</div>
+        <?php if (isset($thatbai)) {
+          echo "<span style='color:red;'>" . $thatbai . "</span>";
+        } ?>
+        <div class="card-body">
+          <form action="#" method="POST">
 
-    				<div class="form-group">
-    					<div class="form-label-group">
-    						<input type="text" id="firstName" name="txtfirstName" class="form-control" placeholder="Họ và tên" value="<?php echo $value['hoten']?>" required="required" autofocus="autofocus">
-    						<label for="firstName">Họ và tên</label>
-    					</div>
-    				</div>
+            <div class="form-group">
+              <div class="form-label-group">
+                <input type="text" id="firstName" name="txtfirstName" class="form-control" placeholder="Họ và tên" value="<?php echo $value['hoten'] ?>" required="required" autofocus="autofocus">
+                <label for="firstName">Họ và tên</label>
+              </div>
+            </div>
 
-    				<div class="form-group">
-    					<div class="form-label-group">
-    						<input type="text" id="inputUsername" name="txtUsername" class="form-control" placeholder="Username" value="<?php echo $value['username']?>" required="required">
-    						<label for="inputUsername">Username</label>
-    					</div>
-    				</div>
-    				<div class="form-group">
-    					<div class="form-label-group">
-    						<input type="email" id="inputEmail" name="txtEmail" class="form-control" placeholder="Email" value="<?php echo $value['emai']?>" required="required">
-    						<label for="inputEmail">Email</label>
-    					</div>
-    				</div>
-    				<div class="form-group">
-    					<div class="form-label-group">
-    						<input type="password" id="inputPassword" name="txtPassword" class="form-control" placeholder="Password" value="<?php echo $value['password']?>" required="required">
-    						<label for="inputPassword">Password</label>
-    					</div>
-    				</div>
-    				<input type="submit" name="Luu" class="btn btn-primary btn-block" value="Lưu lại">
+            <div class="form-group">
+              <div class="form-label-group">
+                <input type="text" id="inputUsername" name="txtUsername" class="form-control" placeholder="Username" value="<?php echo $value['username'] ?>" required="required">
+                <label for="inputUsername">Tên đăng nhập</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-label-group">
+                <input type="email" id="inputEmail" name="txtEmail" class="form-control" placeholder="Email" value="<?php echo $value['emai'] ?>" required="required">
+                <label for="inputEmail">Email</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-label-group">
+                <input type="password" id="inputPassword" name="txtPassword" class="form-control" placeholder="Password" value="<?php echo $value['password'] ?>" required="required">
+                <label for="inputPassword">Mật khẩu</label>
+              </div>
+            </div>
+            <input type="submit" name="Luu" class="btn btn-primary btn-block" value="Lưu lại">
             <div class="text-center">
               <a class="d-block small mt-3" href="index.php?controllers=login&action=Xoa_tk">Xóa tài khoản</a>
             </div>
-    			</form>
-    		</div>
-    	</div>
+          </form>
+        </div>
+      </div>
     </div>
     <!-- /.content-wrapper -->
 
@@ -84,7 +84,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Sẵn sàng đang xuất?</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Sẵn sàng đăng xuất?</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
@@ -113,4 +113,5 @@
 <!-- Demo scripts for this page-->
 <script src="bootstraps/js/demo/datatables-demo.js"></script>
 <script src="bootstraps/js/demo/chart-area-demo.js"></script>
+
 </html>

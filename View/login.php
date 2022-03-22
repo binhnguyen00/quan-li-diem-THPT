@@ -16,39 +16,44 @@
 </head>
 
 <body class="bg-dark">
+  <style>
+    body {
+      background-image: url(https://images.unsplash.com/photo-1487088678257-3a541e6e3922?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
 
   <div class="container">
-    <div class="card card-login mx-auto mt-5">
-      <div class="card-header">Đăng nhập</div>
+    <div class="card card-login mx-auto" style="margin-top: 15%;">
+      <div class="row justify-content-center">
+        <h2 class="heading-section">Đăng nhập</h2>
+      </div>
       <div class="card-body">
         <form action="index.php?controllers=login&action=Admin" method="POST">
           <div class="form-group">
             <?php if (isset(($thatbai))) {
               echo ($thatbai);
             } ?>
-            <div class="form-label-group">
-              <div><label for="username">Tên đăng nhập</label></div>
-              <input type="text" name="username" id="inputtext" class="form-control" required="required">
-            </div>
+            <div><label for="username">Tên đăng nhập</label></div>
+            <input type="text" name="username" id="inputtext" class="form-control" required="required">
           </div>
           <div class="form-group">
             <div><label for="password">Mật khẩu</label></div>
-            <div class="form-label-group">
-              <input type="password" name="password" id="inputPassword" class="form-control" required="required">
-            </div>
+            <input type="password" name="password" id="inputPassword" class="form-control" required="required">
           </div>
           <div class="form-group">
             <div class="checkbox">
               <label>
                 <input type="checkbox" value="remember-me">
-                Ghi nhớ mật khẩu
+                Lưu mật khẩu
               </label>
             </div>
           </div>
           <input type="submit" name="login" class="btn btn-primary btn-block" value="Đăng nhập">
         </form>
         <div class="text-center">
-          <a class="d-block small mt-3" href="index.php?controllers=login&action=damg_ky">Đăng ký tài khoản</a>
+          <a class="d-block small mt-3" href="index.php?controllers=login&action=dang_ky">Đăng ký tài khoản</a>
           <a class="d-block small" href="index.php?controllers=login&action=quen_mk">Quên mật khẩu?</a>
         </div>
       </div>

@@ -20,10 +20,19 @@
 </head>
 
 <body class="bg-dark">
+  <style>
+    body {
+      background-image: url(https://images.unsplash.com/photo-1487088678257-3a541e6e3922?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
 
-  <div class="container">
+  <div class="container" style="margin-top: 10%;">
     <div class="card card-register mx-auto mt-5">
-      <div class="card-header">Đăng ký</div>
+      <div class="row justify-content-center">
+        <h2 class="heading-section">Đăng ký tài khoản</h2>
+      </div>
       <div class="card-body">
         <form action="#" method="POST">
           <div class="form-group">
@@ -48,8 +57,8 @@
 
           <div class="form-group">
             <div class="form-label-group">
-              <input type="text" id="inputUsername" name="txtUsername" class="form-control" placeholder="Username" required="required">
-              <label for="inputUsername">Username</label>
+              <input type="text" id="inputUsername" name="txtUsername" class="form-control" placeholder="Tên đăng nhập" required="required">
+              <label for="inputUsername">Tên đăng nhập</label>
             </div>
           </div>
           <div class="form-group">
@@ -62,14 +71,14 @@
             <div class="form-row">
               <div class="col-md-6">
                 <div class="form-label-group">
-                  <input type="password" id="inputPassword" name="txtPassword" class="form-control" placeholder="Password" required="required">
-                  <label for="inputPassword">Password</label>
+                  <input type="password" id="inputPassword" name="txtPassword" class="form-control" placeholder="Mật khẩu" required="required">
+                  <label for="inputPassword">Mật khẩu</label>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-label-group">
-                  <input type="password" id="confirmPassword" name="txtCfPassword" class="form-control" placeholder="Nhập lại password" required="required">
-                  <label for="confirmPassword">Nhập lại password</label>
+                  <input type="password" id="confirmPassword" name="txtCfPassword" class="form-control" placeholder="Nhập lại Mật khẩu" required="required">
+                  <label for="confirmPassword">Nhập lại Mật khẩu</label>
                 </div>
               </div>
             </div>

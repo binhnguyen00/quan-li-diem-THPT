@@ -104,4 +104,3 @@ class Database_ql_diem
 	}
 
 }
- ?>
