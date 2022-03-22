@@ -52,15 +52,15 @@
                 <thead>
                   <tr>
                     <th>STT</th>
-                    <th>Mã học sinh</th>
+                    <th>Mã HS</th>
                     <th>Họ và tên</th>
                     <th>Ngày sinh</th>
                     <th>Giới tính</th>
                     <th>Dân tộc</th>
                     <th>Nơi sinh</th>
                     <th>Lớp</th>
-                    <th>Trung bình toàn khóa</th>
-                    <th>Xếp loại toàn khóa</th>
+                    <th>TBTK</th>
+                    <th>XLTK</th>
                   </tr>
                 </thead>
                 <tbody>

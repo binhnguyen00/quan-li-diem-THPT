@@ -54,7 +54,7 @@
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Tổng hợp Điểm chi tiết</span></a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" style="margin: 0.5em;">
         <form action="#" method="POST">
           <label for="sel1" style="color: #FFFFFF;">Chọn lớp</label>
 
@@ -86,7 +86,7 @@
             </select>
             <br>
             <div class="input-group-append d-flex justify-content-center">
-              <button type="submit" name="xem" class="btn btn-primary">Xem chi tiết Sinh viên</button>
+              <button type="submit" name="xem" class="btn btn-primary">Xem chi tiết Học sinh</button>
             </div>
           </div>
         </form>
