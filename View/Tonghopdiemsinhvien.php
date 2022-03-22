@@ -40,13 +40,13 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <h6 class="dropdown-header">Chức năng:</h6>
-          <a class="dropdown-item" href="index.php?controllers=quanly&action=Add">Thêm sinh viên</a>
+          <a class="dropdown-item" href="index.php?controllers=quanly&action=Add">Thêm học sinh</a>
           <a class="dropdown-item" href="index.php?controllers=diem&action=QL_Diem">Quản lý điểm</a>
           <div class="dropdown-divider"></div>
           <h6 class="dropdown-header">Bảng:</h6>
           <a class="dropdown-item" href="index.php?controllers=quanly&action=List_lop">Lớp</a>
           <a class="dropdown-item" href="index.php?controllers=quanly&action=list_hocky">Học kỳ</a>
-          <a class="dropdown-item" href="index.php?controllers=quanly&action=list_hocphan">Học phần</a>
+          <a class="dropdown-item" href="index.php?controllers=quanly&action=list_hocphan">Môn học</a>
         </div>
       </li>
       <li class="nav-item">
@@ -54,16 +54,16 @@
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Tổng hợp Điểm chi tiết</span></a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" style="margin: 0.5em;">
         <form action="#" method="POST">
           <label for="sel1" style="color: #FFFFFF;">Chọn lớp</label>
 
           <div class="input-group mb-3">
-            <select class="form-control" name="txt_malop" >
+            <select class="form-control" name="txt_malop">
               <?php foreach ($list_lop as $value) {
 
-                ?>
-                <option  value="<?php echo $value['ma_lop']; ?>"><?php echo $value['ten_lop']; ?></option>
+              ?>
+                <option value="<?php echo $value['ma_lop']; ?>"><?php echo $value['ten_lop']; ?></option>
               <?php } ?>
             </select>
             <div class="input-group-append">
@@ -73,18 +73,20 @@
 
         </form>
         <form action="#" method="POST">
-          <div class="form-group">
-            <label for="sel2" style="color: #FFFFFF;">Danh sách sinh viên</label>
+          <div class="form-group" style="margin: 0.5em;">
+            <label for="sel2" style="color: #FFFFFF;">Danh sách Học sinh</label>
+            <br>
             <select class="form-control" id="sel2" name="txt_masinhvien" size="8">
-              <?php 
-                foreach ($list_lop_sinhvien as $value) {
+              <?php
+              foreach ($list_lop_sinhvien as $value) {
               ?>
-              <option value="<?php echo $value['ma_sv'] ?>"><?php echo $value['hoten_sv'] ?></option>
-              <a href=""><?php echo $value['hoten_sv'] ?></a>
+                <option value="<?php echo $value['ma_sv'] ?>"><?php echo $value['hoten_sv'] ?></option>
+                <a href=""><?php echo $value['hoten_sv'] ?></a>
               <?php } ?>
             </select>
-            <div class="input-group-append">
-              <button type="submit" name="xem" class="btn btn-primary">Xem chi tiết Sinh viên</button>
+            <br>
+            <div class="input-group-append d-flex justify-content-center">
+              <button type="submit" name="xem" class="btn btn-primary">Xem chi tiết Học sinh</button>
             </div>
           </div>
         </form>
@@ -113,7 +115,8 @@
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
-          Bảng tổng hợp Điểm chi tiết sinh viên</div>
+            Bảng tổng hợp Điểm chi tiết học sinh
+          </div>
           <div class="card-body">
             <div class="table-responsive">
               <!-- TT -->
@@ -124,108 +127,104 @@
                     <th>STT</th>
                     <th>Mã môn</th>
                     <th>Tên môn</th>
-                    <th>Số tín chỉ</th>
-                    <th>Điểm học phần</th>
+                    <th>Điểm môn học</th>
                     <th>Điểm chữ</th>
                     <th>Hệ Điểm số</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
-                    // echo "<pre>";
-                    // print_r($ttDiem);
+                  // echo "<pre>";
+                  // print_r($ttDiem);
                   $STT = 0;
-                  $TongSTC = NULL;
                   $TongHDS = NULL;
 
                   if (isset($ttDiem)) {
                     foreach ($ttDiem as $value) {
                       $STT++;
 
-                      $diemHP = round(($value['diem_giua_ky']*0.3)+($value['diem_thi_hp']*0.7),1);
-                      $diemchu = TongDiemChitiet::DC($diemHP);
-                      $diemheso = TongDiemChitiet::HDS($diemHP);
-                      
-                      $TinhDHS = $value['sotinchi']*$diemheso;
+                      $diemHP = round((($value['diem_giua_ky']) + ($value['diem_thi_hp'])) / 2, 1);
+                      $diemchu = (new TongDiemChitiet)->DC($diemHP);
+                      $diemheso = (new TongDiemChitiet)->HDS($diemHP);
 
-                      $TongSTC += $value['sotinchi'];
+                      $TinhDHS =  $diemheso;
                       $TongHDS += $TinhDHS;
 
-                      ?>
+                  ?>
                       <tr>
                         <td><?php echo $STT; ?></td>
                         <td><?php echo $value['ma_mon']; ?></td>
                         <td><?php echo $value['ten_mon']; ?></td>
-                        <td><?php echo $value['sotinchi']; ?></td>
                         <td><?php echo $diemHP; ?></td>
                         <td><?php echo $diemchu; ?></td>
                         <td><?php echo $diemheso; ?></td>
                       </tr>
-                      <?php 
-                    }}
-                    ?>
-                  </tbody>
-                </table>
-                <!-- END TBL -->
-                <!-- TT -->
-                <table width="100%">
-               
-                <?php 
+                  <?php
+                    }
+                  }
+                  ?>
+                </tbody>
+              </table>
+              <!-- END TBL -->
+              <!-- TT -->
+              <table width="100%" class="table table-bordered">
+
+                <?php
                 if (isset($ttDiem)) {
-                  $tbtk = round($TongHDS/$TongSTC,2);
-                  $xltk = TongDiemChitiet::XL_TK($TongHDS/$TongSTC);
+                  $tbtk = round($TongHDS, 2);
+                  $xltk = (new TongDiemChitiet)->XL_TK($TongHDS);
                 ?>
-                <tr>
-                  <th>Mã sinh viên: </th>
-                  <td><?php if (isset($value['ma_sv'])) {
-                    echo $value['ma_sv'];
-                  } ?></td>
-                  <th>Nơi sinh: </th>
-                  <td><?php if (isset($value['noi_sinh'])) {
-                    echo $value['noi_sinh'];
-                  } ?></td>
-                  <th></th>
-                  <td></td>
-                </tr>
-                <tr>
-                  <th>Họ và tên: </th>
-                  <td><?php if (isset($value['hoten_sv'])) {
-                    echo $value['hoten_sv'];
-                  } ?></td>
-                  <th>Giới tính: </th>
-                  <td><?php if (isset($value['gioi_tinh'])) {
-                    echo $value['gioi_tinh'];
-                  } ?></td>
-                  <th>TB toàn khóa: </th>
-                  <td><?php if (isset($tbtk)) {
-                    echo $tbtk;
-                  } ?></td>
-                </tr>
-                <tr>
-                  <th>Ngày sinh: </th>
-                  <td><?php if (isset($value['ngay_sinh'])) {
-                    echo date('d-m-Y',strtotime($value['ngay_sinh']));
-                  } ?></td>
-                  <th>Dân tộc: </th>
-                  <td><?php if (isset($value['dan_toc'])) {
-                    echo $value['dan_toc'];
-                  } ?></td>
-                  <th>XL toàn khóa: </th>
-                  <td><?php if (isset($xltk)) {
-                    echo $xltk;
-                  } ?></td>
-                </tr>
+                  <tr>
+                    <th>Mã học sinh: </th>
+                    <td><?php if (isset($value['ma_sv'])) {
+                          echo $value['ma_sv'];
+                        } ?></td>
+                    <th>Nơi sinh: </th>
+                    <td><?php if (isset($value['noi_sinh'])) {
+                          echo $value['noi_sinh'];
+                        } ?></td>
+                    <th></th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>Họ và tên: </th>
+                    <td><?php if (isset($value['hoten_sv'])) {
+                          echo $value['hoten_sv'];
+                        } ?></td>
+                    <th>Giới tính: </th>
+                    <td><?php if (isset($value['gioi_tinh'])) {
+                          echo $value['gioi_tinh'];
+                        } ?></td>
+                    <th>TB toàn khóa: </th>
+                    <td><?php if (isset($tbtk)) {
+                          echo $tbtk;
+                        } ?></td>
+                  </tr>
+                  <tr>
+                    <th>Ngày sinh: </th>
+                    <td><?php if (isset($value['ngay_sinh'])) {
+                          echo date('d-m-Y', strtotime($value['ngay_sinh']));
+                        } ?></td>
+                    <th>Dân tộc: </th>
+                    <td><?php if (isset($value['dan_toc'])) {
+                          echo $value['dan_toc'];
+                        } ?></td>
+                    <th>XL toàn khóa: </th>
+                    <td><?php if (isset($xltk)) {
+                          echo $xltk;
+                        } ?></td>
+                  </tr>
                 <?php } ?>
               </table>
               <!-- END TT -->
-              </div>
             </div>
-            <div class="card-footer small text-muted">Cập nhật ngày hôm qua lúc 11:59</div>
           </div>
+          <div class="card-footer small text-muted">Cập nhật ngày hôm qua lúc 11:59</div>
         </div>
-        <!-- /.container-fluid -->
-
       </div>
+      <!-- /.container-fluid -->
+
+    </div>
     <!-- /.content-wrapper -->
 
   </div>
@@ -270,4 +269,5 @@
 <!-- Demo scripts for this page-->
 <script src="bootstraps/js/demo/datatables-demo.js"></script>
 <script src="bootstraps/js/demo/chart-area-demo.js"></script>
+
 </html>

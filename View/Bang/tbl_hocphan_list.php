@@ -44,42 +44,45 @@
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
-          Hiện thị bảng lớp</div>
+            Hiểm thị bảng lớp
+          </div>
           <div class="card-body">
             <div class="table-responsive">
               <div>
-                <a href="index.php?controllers=quanly&action=Add_hocphan"><button class="btn btn-primary" type="submit">Thêm mới</button></a>  
+                <a href="index.php?controllers=quanly&action=Add_hocphan"><button class="btn btn-primary" type="submit">Thêm mới</button></a>
               </div>
-              <br/>
+              <br />
               <table class="table table-bordered">
                 <thead>
                   <tr>
                     <th>STT</th>
                     <th>Mã môn</th>
                     <th>Tên môn</th>
-                    <th>Số tín chỉ</th>
                     <th>Mã học kỳ</th>
                     <th>Hành động</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php 
+                  <?php
                   $STT = 0;
-                  foreach ($listhocphan as $value) {
-                    $STT++;
-                   ?>
-                  <tr>
-                    <td><?php echo $STT; ?></td>
-                    <td><?php echo $value['ma_mon']; ?></td>
-                    <td><?php echo $value['ten_mon']; ?></td>
-                    <td><?php echo $value['sotinchi']; ?></td>
-                    <td><?php echo $value['ma_hk']; ?></td>
-                    <td>
-                      <a href="index.php?controllers=quanly&action=Edit_hocphan&maMon=<?php echo $value['ma_mon']; ?>" title="Sửa"><i class="fas fa-edit"></i> </a>
-                      <a onclick="return confirm('Bạn có chắc chắn muốn xóa không..?')" href="index.php?controllers=quanly&action=Delete_hocphan&maMon=<?php echo $value['ma_mon']; ?>" title="Xóa"><i class="fas fa-trash-alt"> </i></a>
-                    </td>
-                  </tr>
-                  <?php } ?>
+                  if ($listhocphan == null) {
+                    echo "<h2>Chưa có lớp</h2>";
+                  } else {
+                    foreach ($listhocphan as $value) {
+                      $STT++;
+                  ?>
+                      <tr>
+                        <td><?php echo $STT; ?></td>
+                        <td><?php echo $value['ma_mon']; ?></td>
+                        <td><?php echo $value['ten_mon']; ?></td>
+                        <td><?php echo $value['ma_hk']; ?></td>
+                        <td>
+                          <a href="index.php?controllers=quanly&action=Edit_hocphan&maMon=<?php echo $value['ma_mon']; ?>" title="Sửa"><i class="fas fa-edit"></i> </a>
+                          <a onclick="return confirm('Bạn có chắc chắn muốn xóa không..?')" href="index.php?controllers=quanly&action=Delete_hocphan&maMon=<?php echo $value['ma_mon']; ?>" title="Xóa"><i class="fas fa-trash-alt"> </i></a>
+                        </td>
+                      </tr>
+                  <?php }
+                  } ?>
                 </tbody>
               </table>
             </div>
@@ -89,34 +92,34 @@
         <!-- /.container-fluid -->
 
       </div>
-    <!-- /.content-wrapper -->
+      <!-- /.content-wrapper -->
 
-  </div>
-  <!-- /#wrapper -->
+    </div>
+    <!-- /#wrapper -->
 
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
 
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Sẵn sàng đang xuất?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Bạn có chắc chắn muốn đăng xuất tài khoản không?</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy</button>
-          <a class="btn btn-primary" href="index.php">Đăng xuất</a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Sẵn sàng đang xuất?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Bạn có chắc chắn muốn đăng xuất tài khoản không?</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy</button>
+            <a class="btn btn-primary" href="index.php">Đăng xuất</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
 </body>
 <!-- Bootstrap core JavaScript-->
@@ -133,4 +136,5 @@
 <!-- Demo scripts for this page-->
 <script src="bootstraps/js/demo/datatables-demo.js"></script>
 <script src="bootstraps/js/demo/chart-area-demo.js"></script>
+
 </html>

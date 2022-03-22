@@ -37,14 +37,15 @@
           <li class="breadcrumb-item">
             <a href="#">Bảng điểu kiểm</a>
           </li>
-          <li class="breadcrumb-item active">Điểm học phần</li>
+          <li class="breadcrumb-item active">Điểm môn học</li>
         </ol>
 
         <!-- DataTables Example -->
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
-            Bảng điểm học phần sinh viên</div>
+            Bảng điểm môn học
+          </div>
           <div class="card-body">
             <div class="table-responsive">
               <!-- TL -->
@@ -57,13 +58,13 @@
                     <div class="dropdown-menu">
                     <?php foreach ($list_lop as $value) {
                     ?>
-                      <a class="dropdown-item" href="index.php?controllers=diem&action=Edit_Diem&maLop=<?php echo $value['ma_lop']; ?>"><?php echo $value['ten_lop']; ?></a>
+                      <?php echo $value['ma_lop']; ?><?php echo $value['ten_lop']; ?>
                     <?php } ?>
                     </div>
                   </div>
                   <select class="form-control" id="sel1" name="sellist1">
                     <?php foreach ($list_sv as $value) {
-                      ?>
+                    ?>
                       <option value="<?php echo $value['ma_sv']; ?>"><?php echo $value['hoten_sv']; ?></option>
                     <?php } ?>
                   </select>
@@ -78,84 +79,89 @@
                 <div class="input-group mt-3 mb-3">
                   <div class="input-group-prepend">
                     <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
-                     <!--  Danh sách lớp -->
-
-                      <?php 
+                      <?php
                       if (isset($value['ma_lop'])) {
                         echo $value['ten_lop'];
-                      }
-                      else
-                      echo "Danh sách lớp";
-                       ?>
+                      } else
+                        echo "Danh sách lớp";
+                      ?>
                     </button>
                     <div class="dropdown-menu">
-                    <?php foreach ($list_lop as $value) {
-                    ?>
-                      <a class="dropdown-item" href="index.php?controllers=diem&action=QL_Diem&maLop=<?php echo $value['ma_lop']; ?>"><?php echo $value['ten_lop']; ?></a>
-                    <?php } ?>
+                      <?php foreach ($list_lop as $value) {
+                      ?>
+                        <a class="dropdown-item" href="index.php?controllers=diem&action=QL_Diem&maLop=<?php echo $value['ma_lop']; ?>"><?php echo $value['ten_lop']; ?></a>
+                      <?php } ?>
                     </div>
                   </div>
                   <div class="input-group-prepend">
                     <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
-                      Danh sách Sinh viên
+                      Danh sách học sinh
                     </button>
                     <div class="dropdown-menu">
-                    <?php 
-                    if (isset($list_sv)) {
-                      foreach ($list_sv as $value) {
-                    ?>
-                      <a class="dropdown-item" href="index.php?controllers=diem&action=QL_Diem&maSV=<?php echo $value['ma_sv']."&maLop=".$value['ma_lop']; ?>"><?php echo $value['hoten_sv']; ?></a>
-                    <?php }} ?>
+                      <?php
+                      if (isset($list_sv)) {
+                        if ($list_sv == null) {
+                          echo "Lớp chưa có học sinh";
+                        } else {
+                          foreach ($list_sv as $value) {
+                      ?>
+                            <a class="dropdown-item" href="index.php?controllers=diem&action=QL_Diem&maSV=<?php echo $value['ma_sv'] . "&maLop=" . $value['ma_lop']; ?>"><?php echo $value['hoten_sv']; ?></a>
+                      <?php }
+                        }
+                      } ?>
                     </div>
                   </div>
                 </div>
               </form>
               <!-- End TL -->
               <div>
-                <a href="index.php?controllers=diem&action=Add_Diem_HP"><button class="btn btn-primary" type="submit">Thêm mới</button></a>  
+                <a href="index.php?controllers=diem&action=Add_Diem_HP"><button class="btn btn-primary" type="submit">Thêm mới</button></a>
               </div>
-              <br/>
+              <br />
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
                     <th>STT</th>
                     <th>Mã môn</th>
                     <th>Tên môn</th>
-                    <th>Số tín chỉ</th>
                     <th>Điểm Giữa kỳ</th>
-                    <th>Diểm thi học kỳ</th>
-                    <th>Điểm học phần</th>
+                    <th>Điểm Cuối kỳ</th>
+                    <th>Điểm TB môn học</th>
                     <th>Học kỳ</th>
                     <th>Hành động</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
-                    // echo "<pre>";
-                    // print_r($dHP);
-                    if (isset($dHP)) {
+                  // echo "<pre>";
+                  // print_r($dHP);
+                  if (isset($dHP)) {
                     $STT = 0;
-                    foreach ($dHP as $value) {
-                      $STT++;
-                      $TBHP = ($value['diem_giua_ky']*0.3)+($value['diem_thi_hp']*0.7);
-                   ?>
-                  <tr>
-                    <td><?php echo $STT; ?></td>
-                    <td><?php echo $value['ma_mon']; ?></td>
-                    <td><?php echo $value['ten_mon']; ?></td>
-                    <td><?php echo $value['sotinchi']; ?></td>
-                    <td><?php echo $value['diem_giua_ky']; ?></td>
-                    <td><?php echo $value['diem_thi_hp']; ?></td>
-                    <td><?php echo round($TBHP,1); ?></td>
-                    <td><?php echo $value['ten_hk']; ?></td>
-                    <td>
-                      <a href="index.php?controllers=diem&action=Edit_Diem_HP&maSV=<?php echo $value['ma_sv']."&maMon=".$value['ma_mon']; ?>" title="Sửa"><i class="fas fa-edit"></i> </a>
-                      <a onclick="return confirm('Bạn có chắc chắn muốn xóa không..?')" href="index.php?controllers=diem&action=Delete_Diem_HP&maSV=<?php echo $value['ma_sv']."&maMon=".$value['ma_mon']; ?>" title="Xóa"><i class="fas fa-trash-alt"> </i></a>
-                    </td>
-                  </tr>
-                  <?php 
-                    }}
-                   ?>
+                    if ($dHP == null) {
+                      echo "<h2>Học sinh chưa có điểm</h2>";
+                    } else {
+                      foreach ($dHP as $value) {
+                        $STT++;
+                        $TBHP = ($value['diem_giua_ky'] * 0.3) + ($value['diem_thi_hp'] * 0.7);
+                  ?>
+                        <tr>
+                          <td><?php echo $STT; ?></td>
+                          <td><?php echo $value['ma_mon']; ?></td>
+                          <td><?php echo $value['ten_mon']; ?></td>
+                          <td><?php echo $value['diem_giua_ky']; ?></td>
+                          <td><?php echo $value['diem_thi_hp']; ?></td>
+                          <td><?php echo round($TBHP, 1); ?></td>
+                          <td><?php echo $value['ten_hk']; ?></td>
+                          <td>
+                            <a href="index.php?controllers=diem&action=Edit_Diem_HP&maSV=<?php echo $value['ma_sv'] . "&maMon=" . $value['ma_mon']; ?>" title="Sửa"><i class="fas fa-edit"></i> </a>
+                            <a onclick="return confirm('Bạn có chắc chắn muốn xóa không..?')" href="index.php?controllers=diem&action=Delete_Diem_HP&maSV=<?php echo $value['ma_sv'] . "&maMon=" . $value['ma_mon']; ?>" title="Xóa"><i class="fas fa-trash-alt"> </i></a>
+                          </td>
+                        </tr>
+                  <?php
+                      }
+                    }
+                  }
+                  ?>
                 </tbody>
               </table>
             </div>
@@ -213,4 +219,5 @@
 <!-- Demo scripts for this page-->
 <script src="bootstraps/js/demo/datatables-demo.js"></script>
 <script src="bootstraps/js/demo/chart-area-demo.js"></script>
+
 </html>

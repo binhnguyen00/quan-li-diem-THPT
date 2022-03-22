@@ -1,10 +1,10 @@
-<?php 
+<?php
 
 require_once 'Connect/connect.php';
 class Sinhvien extends Database_ql_diem
 {
 
-	public function ADD($text_masv,$text_tensv,$text_ngaysinh,$text_gioitinh,$text_dantoc,$text_noisinh,$text_malop)
+	public function ADD($text_masv, $text_tensv, $text_ngaysinh, $text_gioitinh, $text_dantoc, $text_noisinh, $text_malop)
 	{
 		$sql = "INSERT INTO sinhvien(ma_sv, hoten_sv, ngay_sinh, gioi_tinh, dan_toc, noi_sinh, ma_lop) VALUES ('$text_masv', '$text_tensv', '$text_ngaysinh', '$text_gioitinh', '$text_dantoc', '$text_noisinh', '$text_malop')";
 		return parent::Execute($sql);
@@ -14,10 +14,10 @@ class Sinhvien extends Database_ql_diem
 		$sql = "SELECT * FROM sinhvien WHERE sinhvien.ma_sv = '$id'";
 		return parent::Execute($sql);
 	}
-	public function Edit($text_masv,$text_tensv,$text_ngaysinh,$text_gioitinh,$text_dantoc,$text_noisinh,$text_malop,$id)
+	public function Edit($text_masv, $text_tensv, $text_ngaysinh, $text_gioitinh, $text_dantoc, $text_noisinh, $text_malop) //
 	{
-		$sql = "UPDATE sinhvien SET ma_sv='$text_masv',hoten_sv='$text_tensv',ngay_sinh='$text_ngaysinh',gioi_tinh='$text_gioitinh',dan_toc='$text_dantoc',noi_sinh='$text_noisinh',ma_lop='$text_malop' WHERE ma_sv='$id'";
-		return parent::Execute($sql);
+		$sql = "UPDATE sinhvien SET ma_sv='$text_masv',hoten_sv='$text_tensv',ngay_sinh='$text_ngaysinh',gioi_tinh='$text_gioitinh',dan_toc='$text_dantoc',noi_sinh='$text_noisinh',ma_lop='$text_malop' WHERE ma_sv='$text_masv'"; //
+		return (new Sinhvien)->Execute($sql);
 	}
 	public function Delete($text_masv)
 	{
@@ -35,5 +35,3 @@ class Sinhvien extends Database_ql_diem
 		return parent::Getdata($sql);
 	}
 }
-
- ?>

@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Thêm sinh viên</title>
+  <title>Thêm học sinh</title>
 
   <!-- phông chữ-->
   <link href="bootstraps/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -37,78 +37,78 @@
           <li class="breadcrumb-item">
             <a href="index.php?controllers=quanly&action=Admin">Bảng điểu kiểm</a>
           </li>
-          <li class="breadcrumb-item active">Thêm sinh viên</li>
+          <li class="breadcrumb-item active">Thêm học sinh</li>
         </ol>
 
         <!-- DataTables Example -->
         <?php if (isset($thatbai)) {
-        	echo($thatbai);
+          echo ($thatbai);
         } ?>
         <div class="container">
-        	<div class="card card-login mx-auto mt-5">
-        		<div class="card-header">Thêm sinh viên</div>
-        		<div class="card-body">
-        			<form action="#" method="POST">
-        				<div class="form-group">
-        					<div class="form-label-group">
-        						<input type="text" name="txt_masv" id="inputMasv" class="form-control" placeholder="Mã sinh viên" required="required" autofocus="autofocus">
-        						<label for="inputMasv">Mã sinh viên</label>
-        					</div>
-        				</div>
+          <div class="card card-login mx-auto mt-5">
+            <div class="card-header">Thêm học sinh</div>
+            <div class="card-body">
+              <form action="#" method="POST">
+                <div class="form-group">
+                  <div class="form-label-group">
+                    <input type="text" name="txt_masv" id="inputMasv" class="form-control" placeholder="Mã học sinh" required="required" autofocus="autofocus">
+                    <label for="inputMasv">Mã học sinh</label>
+                  </div>
+                </div>
 
-        				<div class="form-group">
-        					<div class="form-label-group">
-        						<input type="text" name="txt_hoten" id="inputTensv" class="form-control" placeholder="Họ và tên" required="required">
-        						<label for="inputTensv">Họ và tên</label>
-        					</div>
-        				</div>
+                <div class="form-group">
+                  <div class="form-label-group">
+                    <input type="text" name="txt_hoten" id="inputTensv" class="form-control" placeholder="Họ và tên" required="required">
+                    <label for="inputTensv">Họ và tên</label>
+                  </div>
+                </div>
 
-        				<div class="form-group">
-        					<div class="form-label-group">
-        						<input type="date" name="txt_ngaysinh" id="inputNgaysinh" class="form-control" placeholder="Ngày sinh" required="required">
-        						<label for="inputNgaysinh">Ngày sinh</label>
-        					</div>
-        				</div>
+                <div class="form-group">
+                  <div class="form-label-group">
+                    <input type="date" name="txt_ngaysinh" id="inputNgaysinh" class="form-control" placeholder="Ngày sinh" required="required">
+                    <label for="inputNgaysinh">Ngày sinh</label>
+                  </div>
+                </div>
 
-        				<div class="form-group">
-        					<div class="radio">
-        						<label>
-        							<input type="radio" name="txt_gioitinh" value="Nam" checked>
-        							Nam
-        						</label>
-        						<label>
-        							<input type="radio" name="txt_gioitinh" value="Nữ">
-        							Nữ
-        						</label>
-        					</div>
-        				</div>
-        				<div class="form-group">
-        					<div class="form-label-group">
-        						<input type="text" name="txt_dantoc" id="inputDanto" class="form-control" placeholder="Dân tộc" required="required">
-        						<label for="inputDanto">Dân tộc</label>
-        					</div>
-        				</div>
-        				<div class="form-group">
-        					<div class="form-label-group">
-        						<input type="text" name="txt_noisinh" id="inputNoisinh" class="form-control" placeholder="Nơi sinh" required="required">
-        						<label for="inputNoisinh">Nơi sinh</label>
-        					</div>
-        				</div>
-        				<div class="form-group">
-        					<div class="form-label-group">
-        						<select name="txt_malop" class="form-control" multiple required="required">
-        							<?php foreach ($list_lop as $value) {
- 
-        							?>
-        							<option value="<?php echo $value['ma_lop']; ?>"><?php echo $value['ten_lop']; ?></option>
-        							<?php } ?>
-        						</select>
-        					</div>
-        				</div>
-        				<input type="submit" name="Add" class="btn btn-primary btn-block" value="Thêm">
-        			</form>
-        		</div>
-        	</div>
+                <div class="form-group">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="txt_gioitinh" value="Nam" checked>
+                      Nam
+                    </label>
+                    <label>
+                      <input type="radio" name="txt_gioitinh" value="Nữ">
+                      Nữ
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-label-group">
+                    <input type="text" name="txt_dantoc" id="inputDanto" class="form-control" placeholder="Dân tộc" required="required">
+                    <label for="inputDanto">Dân tộc</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-label-group">
+                    <input type="text" name="txt_noisinh" id="inputNoisinh" class="form-control" placeholder="Nơi sinh" required="required">
+                    <label for="inputNoisinh">Nơi sinh</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-label-group">
+                    <select name="txt_malop" class="form-control" multiple required="required">
+                      <?php foreach ($list_lop as $value) {
+
+                      ?>
+                        <option value="<?php echo $value['ma_lop']; ?>"><?php echo $value['ten_lop']; ?></option>
+                      <?php } ?>
+                    </select>
+                  </div>
+                </div>
+                <input type="submit" name="Add" class="btn btn-primary btn-block" value="Thêm">
+              </form>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -162,4 +162,5 @@
 <!-- Demo scripts for this page-->
 <script src="bootstraps/js/demo/datatables-demo.js"></script>
 <script src="bootstraps/js/demo/chart-area-demo.js"></script>
+
 </html>
