@@ -27,14 +27,14 @@
               echo ($thatbai);
             } ?>
             <div class="form-label-group">
-              <input type="text" name="username" id="inputtext" class="form-control" placeholder="Tên đăng nhập" required="required" style="z-index: 10;">
-              <label for="inputEmail">Tên đăng nhập</label>
+              <div><label for="username">Tên đăng nhập</label></div>
+              <input type="text" name="username" id="inputtext" class="form-control" required="required">
             </div>
           </div>
           <div class="form-group">
+            <div><label for="password">Mật khẩu</label></div>
             <div class="form-label-group">
-              <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Mật khẩu" required="required">
-              <label for="inputPassword">Mật khẩu</label>
+              <input type="password" name="password" id="inputPassword" class="form-control" required="required">
             </div>
           </div>
           <div class="form-group">
