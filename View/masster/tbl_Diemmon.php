@@ -7,7 +7,7 @@
       <li class="breadcrumb-item">
         <a href="#">Bảng điểu kiểm</a>
       </li>
-      <li class="breadcrumb-item active">Điểm học phần</li>
+      <li class="breadcrumb-item active">Điểm Môn học</li>
     </ol>
 
     <!-- DataTables Example -->
@@ -25,8 +25,8 @@
                 <th>Mã môn</th>
                 <th>Tên môn</th>
                 <th>Điểm Giữa kỳ</th>
-                <th>Diểm thi học kỳ</th>
-                <th>Điểm học phần</th>
+                <th>Diểm Cuối kỳ</th>
+                <th>Điểm môn học</th>
                 <th>Học kỳ</th>
               </tr>
             </thead>
@@ -47,7 +47,6 @@
                       <td><?php echo $STT; ?></td>
                       <td><?php echo $value['ma_mon']; ?></td>
                       <td><?php echo $value['ten_mon']; ?></td>
-                      <td><?php echo $value['sotinchi']; ?></td>
                       <td><?php echo $value['diem_giua_ky']; ?></td>
                       <td><?php echo $value['diem_thi_hp']; ?></td>
                       <td><?php echo round($TBHP, 1); ?></td>

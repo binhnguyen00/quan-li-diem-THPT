@@ -37,54 +37,53 @@
           <li class="breadcrumb-item">
             <a href="#">Bảng điểu kiểm</a>
           </li>
-          <li class="breadcrumb-item active">Danh sách sinh viên</li>
+          <li class="breadcrumb-item active">Danh sách học sinh</li>
         </ol>
 
         <!-- DataTables Example -->
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
-            Tất cả sinh viên</div>
+            Tất cả học sinh
+          </div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
                     <th>STT</th>
-                    <th>Mã sinh viên</th>
+                    <th>Mã học sinh</th>
                     <th>Họ và tên</th>
                     <th>Ngày sinh</th>
                     <th>Giới tính</th>
                     <th>Dân tộc</th>
                     <th>Nơi sinh</th>
                     <th>Lớp</th>
-                    <th>Tổng STC</th>
-                    <th>TB toàn khóa</th>
-                    <th>XL toàn khóa</th>
+                    <th>Trung bình toàn khóa</th>
+                    <th>Xếp loại toàn khóa</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
-                    $STT = 0;
-                    foreach ($sv as $value) {
-                      $STT++;
-                   ?>
-                  <tr>
-                    <td><?php echo $STT; ?></td>
-                    <td><?php echo $value['ma_sv']; ?></td>
-                    <td><?php echo $value['hoten_sv']; ?></td>
-                    <td><?php echo date('d-m-Y',strtotime($value['ngay_sinh'])); ?></td>
-                    <td><?php echo $value['gioi_tinh']; ?></td>
-                    <td><?php echo $value['dan_toc']; ?></td>
-                    <td><?php echo $value['noi_sinh']; ?></td>
-                    <td><?php echo $value['ten_lop']; ?></td>
-                    <td><?php echo $value['STC']; ?></td>
-                    <td><?php echo $value['TB_Toankhoa']; ?></td>
-                    <td><?php echo $value['XL_Toankhoa']; ?></td>
-                  </tr>
-                  <?php 
-                    }
-                   ?>
+                  $STT = 0;
+                  foreach ($sv as $value) {
+                    $STT++;
+                  ?>
+                    <tr>
+                      <td><?php echo $STT; ?></td>
+                      <td><?php echo $value['ma_sv']; ?></td>
+                      <td><?php echo $value['hoten_sv']; ?></td>
+                      <td><?php echo date('d-m-Y', strtotime($value['ngay_sinh'])); ?></td>
+                      <td><?php echo $value['gioi_tinh']; ?></td>
+                      <td><?php echo $value['dan_toc']; ?></td>
+                      <td><?php echo $value['noi_sinh']; ?></td>
+                      <td><?php echo $value['ten_lop']; ?></td>
+                      <td><?php echo $value['TB_Toankhoa']; ?></td>
+                      <td><?php echo $value['XL_Toankhoa']; ?></td>
+                    </tr>
+                  <?php
+                  }
+                  ?>
                 </tbody>
               </table>
             </div>
@@ -139,4 +138,5 @@
 <!-- Demo scripts for this page-->
 <script src="bootstraps/js/demo/datatables-demo.js"></script>
 <script src="bootstraps/js/demo/chart-area-demo.js"></script>
+
 </html>

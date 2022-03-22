@@ -125,7 +125,7 @@
                     <th>Mã môn</th>
                     <th>Tên môn</th>
                     <th>Điểm Giữa kỳ</th>
-                    <th>Diểm thi học kỳ</th>
+                    <th>Điểm Cuối kỳ</th>
                     <th>Điểm TB môn học</th>
                     <th>Học kỳ</th>
                     <th>Hành động</th>
