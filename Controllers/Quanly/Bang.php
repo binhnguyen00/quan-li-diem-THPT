@@ -213,7 +213,7 @@ switch ($action) {
 
 				$ngaysinh = date('Y-m-d', strtotime($txt_ngaysinh));
 
-				if ((new Sinhvien)->Edit($txt_masv, $txt_hoten, $ngaysinh, $txt_gioitinh, $txt_dantoc, $txt_noisinh, $txt_malop, $id)) {
+				if ((new Sinhvien)->Edit($txt_masv, $txt_hoten, $ngaysinh, $txt_gioitinh, $txt_dantoc, $txt_noisinh, $txt_malop)) {
 					header("location:index.php?controllers=quanly&action=Admin");
 				} else {
 					$thatbai = "Sửa thất bại..!";
