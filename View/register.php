@@ -57,7 +57,7 @@
 
           <div class="form-group">
             <div class="form-label-group">
-              <input type="text" id="inputUsername" name="txtUsername" class="form-control" placeholder="Tên đăng nhập" required="required">
+              <input type="text" id="inputUsername" name="txtTen_tk" class="form-control" placeholder="Tên đăng nhập" required="required">
               <label for="inputUsername">Tên đăng nhập</label>
             </div>
           </div>
@@ -71,13 +71,13 @@
             <div class="form-row">
               <div class="col-md-6">
                 <div class="form-label-group">
-                  <input type="password" id="inputPassword" name="txtPassword" class="form-control" placeholder="Mật khẩu" required="required">
+                  <input type="password" id="inputPassword" name="txtMatkhau" class="form-control" placeholder="Mật khẩu" required="required">
                   <label for="inputPassword">Mật khẩu</label>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-label-group">
-                  <input type="password" id="confirmPassword" name="txtCfPassword" class="form-control" placeholder="Nhập lại Mật khẩu" required="required">
+                  <input type="password" id="confirmPassword" name="txtCfMatkhau" class="form-control" placeholder="Nhập lại Mật khẩu" required="required">
                   <label for="confirmPassword">Nhập lại Mật khẩu</label>
                 </div>
               </div>

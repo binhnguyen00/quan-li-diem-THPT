@@ -38,6 +38,7 @@ class Database_ql_diem
 		return $arr;
 	}
 	// xử lý Điểm
+
 	public function H_Diem($diem)
 	{
 		if ($diem >= 8.5) {
