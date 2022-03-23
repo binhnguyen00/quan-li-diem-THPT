@@ -11,15 +11,16 @@ switch ($action) {
 		if (isset($_POST['Dangky'])) {
 			$txtfirstName = $_POST['txtfirstName'];
 			$txtlastName = $_POST['txtlastName'];
-			$txtUsername = $_POST['txtUsername'];
+			$txtTen_tk = $_POST['txtTen_tk'];
 			$txtEmail = $_POST['txtEmail'];
-			$txtPassword = md5($_POST['txtPassword']);
-			$txtCfPassword = md5($_POST['txtCfPassword']);
+			$txtMatkhau = md5($_POST['txtMatkhau']);
+			$txtCfMatkhau = md5($_POST['txtCfMatkhau']);
+			$Ma_ltk = 'B01'; 
 
-			$txtHoten = $txtfirstName . " " . $txtlastName;
+			$txtHovaten = $txtfirstName . " " . $txtlastName;
 
-			if ($txtPassword == $txtCfPassword) {
-				if (Dangnhap::ADD($txtHoten, $txtUsername, $txtPassword, $txtEmail)) {
+			if ($txtMatkhau == $txtCfMatkhau) {
+				if (Dangnhap::ADD($txtHovaten, $txtTen_tk, $txtMatkhau, $txtEmail, $Ma_ltk)) {
 					header('location:index.php?controllers=login');
 				}
 			} else {
@@ -29,18 +30,18 @@ switch ($action) {
 		require_once 'View/register.php';
 		break;
 	case 'cai_dat':
-		if (isset($_GET['username'])) {
-			$username = $_GET['username'];
-			$user = Dangnhap::List_id($username);
+		if (isset($_GET['Ten_tk'])) {
+			$Ten_tk = $_GET['Ten_tk'];
+			$user = Dangnhap::List_id($Ten_tk);
 
 			if (isset($_POST['Luu'])) {
 				$txtfirstName = $_POST['txtfirstName'];
-				$txtUsername = $_POST['txtUsername'];
+				$txtTen_tk = $_POST['txtTen_tk'];
 				$txtEmail = $_POST['txtEmail'];
-				$txtPassword = md5($_POST['txtPassword']);
+				$txtMatkhau = md5($_POST['txtMatkhau']);
 
-				if (Dangnhap::Edit($txtfirstName, $txtUsername, $txtPassword, $txtEmail, $username)) {
-					$_SESSION['username'] = $txtUsername;
+				if (Dangnhap::Edit($txtfirstName, $txtTen_tk, $txtMatkhau, $txtEmail)) {
+					$_SESSION['Ten_tk'] = $txtTen_tk;
 					header('location:index.php?controllers=quanly&action=Admin');
 				} else {
 					$thatbai = "Lưu thất bại.!";
@@ -48,13 +49,13 @@ switch ($action) {
 			}
 		}
 		foreach ($user as $value) {
-			# code...
+			
 		}
 		require_once 'View/caidat.php';
 		break;
 	case 'Xoa_tk':
-		if ($_SESSION["username"]) {
-			$text_username = $_SESSION["username"];
+		if ($_SESSION["Ma_tk"]) {
+			$text_username = $_SESSION["Ma_tk"];
 			if (Dangnhap::Delete($text_username)) {
 				session_destroy();
 				header('location:index.php');
