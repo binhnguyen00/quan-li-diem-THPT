@@ -14,9 +14,9 @@ class Dangnhap extends Database_ql_diem
 		$sql = "INSERT INTO taikhoan(Hovaten, Ten_tk, Matkhau, Email, Ma_ltk) VALUES ('$Hovaten','$Ten_tk','$Matkhau','$Email','$Ma_ltk')";
 		return (new Database_ql_diem)->Execute($sql);
 	}
-	public static function Edit($Hovaten, $Ten_tk, $Matkhau, $Email, $Ma_tk, $Ma_ltk)
+	public static function Edit($Hovaten, $Ten_tk, $Matkhau, $Email)
 	{
-		$sql = "UPDATE taikhoan SET Hovaten='$text_hoten',Ma_ltk='$Ma_ltk',Ten_tk='$Ten_tk',Matkhau='$Matkhau',Emai='$text_email' WHERE taikhoan.Ma_tk = '$Ma_tk'";
+		$sql = "UPDATE taikhoan SET Hovaten='$text_hoten',Matkhau='$Matkhau',Emai='$text_email' WHERE taikhoan.Ten_tk = '$Ten_tk'";
 		return (new Database_ql_diem)->Execute($sql);
 	}
 	public static function Delete($Ma_tk)
@@ -27,7 +27,7 @@ class Dangnhap extends Database_ql_diem
 	}
 	public static function List_id($Ma_tk)
 	{
-		$sql = "SELECT * FROM taikhoan WHERE taikhoan.ma_tk = '$Ma_tk'";
+		$sql = "SELECT * FROM taikhoan WHERE taikhoan.Ma_tk = '$Ma_tk'";
 		return (new Dangnhap)->Getdata($sql);
 	}
 	public static function List($Ma_tk)

@@ -38,26 +38,26 @@
 
             <div class="form-group">
               <div class="form-label-group">
-                <input type="text" id="firstName" name="txtfirstName" class="form-control" placeholder="Họ và tên" value="<?php echo $value['hoten'] ?>" required="required" autofocus="autofocus">
+                <input type="text" id="firstName" name="txtfirstName" class="form-control" placeholder="Họ và tên" value="<?php echo $value['Hovaten'] ?>" required="required" autofocus="autofocus">
                 <label for="firstName">Họ và tên</label>
               </div>
             </div>
 
             <div class="form-group">
               <div class="form-label-group">
-                <input type="text" id="inputUsername" name="txtUsername" class="form-control" placeholder="Username" value="<?php echo $value['username'] ?>" required="required">
+                <input type="text" id="inputUsername" name="txtTen_tk" class="form-control" placeholder="Username" value="<?php echo $value['Ten_tk'] ?>" required="required">
                 <label for="inputUsername">Tên đăng nhập</label>
               </div>
             </div>
             <div class="form-group">
               <div class="form-label-group">
-                <input type="email" id="inputEmail" name="txtEmail" class="form-control" placeholder="Email" value="<?php echo $value['emai'] ?>" required="required">
+                <input type="email" id="inputEmail" name="txtEmail" class="form-control" placeholder="Email" value="<?php echo $value['Emai'] ?>" required="required">
                 <label for="inputEmail">Email</label>
               </div>
             </div>
             <div class="form-group">
               <div class="form-label-group">
-                <input type="password" id="inputPassword" name="txtPassword" class="form-control" placeholder="Password" value="<?php echo $value['password'] ?>" required="required">
+                <input type="password" id="inputPassword" name="txtMatkhau" class="form-control" placeholder="Password" value="<?php echo $value['Matkhau'] ?>" required="required">
                 <label for="inputPassword">Mật khẩu</label>
               </div>
             </div>
