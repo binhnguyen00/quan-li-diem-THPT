@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 22, 2022 lúc 10:12 AM
+-- Thời gian đã tạo: Th3 23, 2022 lúc 04:56 AM
 -- Phiên bản máy phục vụ: 10.4.22-MariaDB
 -- Phiên bản PHP: 7.4.27
 
@@ -64,12 +64,12 @@ CREATE TABLE `baocao` (
 --
 
 CREATE TABLE `diem` (
-  `Ma_bd` varchar(10) NOT NULL,
   `Ma_hs` varchar(10) NOT NULL,
   `MaLop` varchar(10) NOT NULL,
   `Ma_mh` varchar(10) NOT NULL,
   `Ma_hk` varchar(10) NOT NULL,
-  `Diem` int(11) NOT NULL
+  `Diem_giua_ki` int(11) NOT NULL,
+  `Diem_cuoi_ki` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -190,9 +190,8 @@ INSERT INTO `monhoc` (`Ma_mh`, `Ten_mh`) VALUES
 --
 
 CREATE TABLE `taikhoan` (
-  `Ma_tk` varchar(10) NOT NULL,
-  `Ma_ltk` varchar(10) NOT NULL,
   `Ten_tk` varchar(100) NOT NULL,
+  `Ma_ltk` varchar(10) NOT NULL,
   `Matkhau` varchar(100) NOT NULL,
   `Hovaten` varchar(255) NOT NULL,
   `Ngaylap` date NOT NULL,
@@ -203,10 +202,9 @@ CREATE TABLE `taikhoan` (
 -- Đang đổ dữ liệu cho bảng `taikhoan`
 --
 
-INSERT INTO `taikhoan` (`Ma_tk`, `Ma_ltk`, `Ten_tk`, `Matkhau`, `Hovaten`, `Ngaylap`, `Email`) VALUES
-('', 'B01', 'A', '827ccb0eea8a706c4c34a16891f84e7b', 'Phạm  Tiến Đạt', '0000-00-00', 'tiendatpham655@gmail.com'),
-('1', 'A01', 'Nguyễn Văn A', '123456', '', '2022-03-16', 'tiendatpham2000@gmail.com'),
-('2', 'B01', 'Nguyễn Hoàng C', '654321', '', '2022-03-16', 'tiendatpham655@gmail.com');
+INSERT INTO `taikhoan` (`Ten_tk`, `Ma_ltk`, `Matkhau`, `Hovaten`, `Ngaylap`, `Email`) VALUES
+('A', 'B01', '827ccb0eea8a706c4c34a16891f84e7b', 'Phạm  Tiến Đạt', '0000-00-00', 'tiendatpham655@gmail.com'),
+('C', 'B01', '827ccb0eea8a706c4c34a16891f84e7b', 'C C', '0000-00-00', 'C@gmail.com');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -229,7 +227,6 @@ ALTER TABLE `baocao`
 -- Chỉ mục cho bảng `diem`
 --
 ALTER TABLE `diem`
-  ADD PRIMARY KEY (`Ma_bd`),
   ADD KEY `MaLop` (`MaLop`),
   ADD KEY `Ma_hk` (`Ma_hk`),
   ADD KEY `Ma_hs` (`Ma_hs`),
@@ -279,7 +276,7 @@ ALTER TABLE `monhoc`
 -- Chỉ mục cho bảng `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  ADD PRIMARY KEY (`Ma_tk`),
+  ADD PRIMARY KEY (`Ten_tk`),
   ADD KEY `Ma_ltk` (`Ma_ltk`);
 
 --
