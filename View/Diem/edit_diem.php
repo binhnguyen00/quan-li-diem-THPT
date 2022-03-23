@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Sửa Điểm học phần</title>
+  <title>Sửa Điểm môn học</title>
 
   <!-- phông chữ-->
   <link href="bootstraps/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -43,40 +43,40 @@
         <!-- DataTables Example -->
         <div class="container">
           <div class="card card-login mx-auto mt-5">
-            <div class="card-header">Sửa điểm học phần</div>
+            <div class="card-header">Sửa điểm môn học</div>
             <div class="card-body">
               <form action="#" method="POST">
                 <?php if (isset($thatbai)) {
-                  echo "<span style='color:red'>".($thatbai)."</span>";
+                  echo "<span style='color:red'>" . ($thatbai) . "</span>";
                 }
 
                 foreach ($list_diem_lop_sinhvien as $value) {
 
-                 ?>
-                <div class="form-group">
-                  <label for="sel1">Họ và tên</label>
-                  <select class="form-control" id="sel1" name="sellist1" size="2">
-                    <option value="<?php echo $value['ma_sv']; ?>" disabled><?php echo $value['hoten_sv']; ?></option>
-                  </select>
-                  <br>
-                  <label for="sel2">Tên học phần</label>
-                  <select class="form-control" id="sel2" name="sellist2" size="2">
-                    <option value="<?php echo $value['ma_mon']; ?>" disabled><?php echo $value['ten_mon']; ?></option>
-                  </select>
-                </div>
+                ?>
+                  <div class="form-group">
+                    <label for="sel1">Họ và tên</label>
+                    <select class="form-control" id="sel1" name="sellist1" size="2">
+                      <option value="<?php echo $value['ma_sv']; ?>" disabled><?php echo $value['hoten_sv']; ?></option>
+                    </select>
+                    <br>
+                    <label for="sel2">Tên học phần</label>
+                    <select class="form-control" id="sel2" name="sellist2" size="2">
+                      <option value="<?php echo $value['ma_mon']; ?>" disabled><?php echo $value['ten_mon']; ?></option>
+                    </select>
+                  </div>
 
-                <div class="form-group">
-                  <div class="form-label-group">
-                    <input type="text" name="txt_diemGK" id="inputdiemGK" class="form-control" value="<?php echo $value['diem_giua_ky']; ?>" placeholder="Điểm giữa kỳ" required="required">
-                    <label for="inputdiemGK">Điểm giữa kỳ</label>
+                  <div class="form-group">
+                    <div class="form-label-group">
+                      <input type="text" name="txt_diemGK" id="inputdiemGK" class="form-control" value="<?php echo $value['diem_giua_ky']; ?>" placeholder="Điểm giữa kỳ" required="required">
+                      <label for="inputdiemGK">Điểm giữa kỳ</label>
+                    </div>
                   </div>
-                </div>
-                <div class="form-group">
-                  <div class="form-label-group">
-                    <input type="text" name="txt_diemTHK" id="inputdiemTHK" class="form-control" value="<?php echo $value['diem_thi_hp']; ?>" placeholder="Điểm thi học kỳ" required="required">
-                    <label for="inputdiemTHK">Điểm thi học kỳ</label>
+                  <div class="form-group">
+                    <div class="form-label-group">
+                      <input type="text" name="txt_diemTHK" id="inputdiemTHK" class="form-control" value="<?php echo $value['diem_thi_hp']; ?>" placeholder="Điểm thi học kỳ" required="required">
+                      <label for="inputdiemTHK">Điểm thi học kỳ</label>
+                    </div>
                   </div>
-                </div>
                 <?php } ?>
                 <input type="submit" name="suaDiem" class="btn btn-primary btn-block" value="Sửa">
               </form>
@@ -132,4 +132,5 @@
 <!-- Demo scripts for this page-->
 <script src="bootstraps/js/demo/datatables-demo.js"></script>
 <script src="bootstraps/js/demo/chart-area-demo.js"></script>
+
 </html>

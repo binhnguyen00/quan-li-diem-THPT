@@ -1,5 +1,4 @@
 <?php
-
 class Database_ql_diem
 {
 	private static $hostname = "localhost";

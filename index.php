@@ -1,11 +1,13 @@
-<?php 
+<!-- <script>
+	window.history.forward()
+</script> -->
+
+<?php
 require_once 'Connect/connect.php';
 Database_ql_diem::Connect();
 if (isset($_GET['controllers'])) {
 	$controllers = $_GET['controllers'];
-}
-else
-{
+} else {
 	$controllers = NULL;
 }
 switch ($controllers) {
@@ -24,4 +26,4 @@ switch ($controllers) {
 		break;
 }
 
- ?>
+?>

@@ -1,6 +1,7 @@
 <?php
 
 require_once 'Connect/connect.php';
+
 class Dangnhap extends Database_ql_diem
 {
 	public static function Login($text_username, $text_password)

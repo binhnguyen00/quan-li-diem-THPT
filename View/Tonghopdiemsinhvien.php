@@ -171,8 +171,8 @@
 
                 <?php
                 if (isset($ttDiem)) {
-                  $tbtk = round($TongHDS, 2);
-                  $xltk = (new TongDiemChitiet)->XL_TK($TongHDS);
+                  $tbtk = round($TongHDS / $STT, 2);
+                  $xltk = (new TongDiemChitiet)->XL_TK($TongHDS / $STT);
                 ?>
                   <tr>
                     <th>Mã học sinh: </th>
